@@ -1,2 +1,2 @@
-auth_token = "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"
+auth_token = "ENTER YOUR TOKEN HERE"
 # How to get one: https://huggingface.co/docs/hub/security-tokens
