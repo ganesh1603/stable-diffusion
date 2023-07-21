@@ -1,4 +1,3 @@
-from PIL import ImageTk
 from authtoken import auth_token
 import streamlit as st
 import torch
