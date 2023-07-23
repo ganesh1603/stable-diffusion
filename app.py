@@ -16,7 +16,7 @@ def generate():
 
 button = st.button("GENERATE")
 
-if button:
+if button=="GENERATE":
     generate()
 
 
