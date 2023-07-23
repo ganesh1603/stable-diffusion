@@ -6,7 +6,7 @@ from diffusers import StableDiffusionPipeline
 
 modelid = "CompVis/stable-diffusion-v1-4"
 pipe = StableDiffusionPipeline.from_pretrained(modelid, revision="fp16", torch_dtype=torch.float16, use_auth_token=auth_token)
-
+device="cpu"
 prompt = st.text_area("ENTER YOUR CREATIVITY")
 
 def generate(): 
