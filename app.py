@@ -4,27 +4,19 @@ import torch
 from torch import autocast
 from diffusers import StableDiffusionPipeline 
 
-
-
 modelid = "CompVis/stable-diffusion-v1-4"
-device = "cpu"
-pipe = StableDiffusionPipeline.from_pretrained(modelid, revision="fp16",torch_dtype=torch.float16 ,use_auth_token=auth_token) 
-pipe.to(device)
+pipe = StableDiffusionPipeline.from_pretrained(modelid, revision="fp16", torch_dtype=torch.float16, use_auth_token=auth_token)
 
-
-prompt=st.text_area("ENTER YOUR CREATIVITY")
+prompt = st.text_area("ENTER YOUR CREATIVITY")
 
 def generate(): 
-    with autocast(device): 
-        image = pipe(prompt.get(), guidance_scale=8.5)["sample"][0]
-    img=st.image(image)
+    with autocast(torch.device(device)):
+        image = pipe(prompt.get(), guidance_scale=9.5)["sample"][0]
+    img = st.image(image)
 
+button = st.button("GENERATE")
 
-
-button=st.button("GENERATE")
-
-if button=="GENERATE":
+if button:
     generate()
-else:
-    pass
+
 
